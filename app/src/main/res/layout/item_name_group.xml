@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_vertical"
+    android:padding="@dimen/margin_8dp"
+    android:background="@color/white_snow"
+    android:orientation="horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/size_circle"
+        android:layout_height="@dimen/size_circle"
+        android:id="@+id/view2"
+        app:cardCornerRadius="@dimen/radius_circle"
+        android:shape="ring"
+        android:thicknessRatio="1.9">
+
+        <ImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_circle"
+            android:contentDescription="@string/avatar"
+            android:src="@drawable/avatar"
+            tools:ignore="TouchTargetSizeCheck" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/txt_name"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/Body"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="Alison Gilchrist"/>
+
+    <ImageButton
+        android:id="@+id/imb_delete_members"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/avatar"
+        android:src="@drawable/ic_close"
+        android:layout_marginEnd="@dimen/margin_8dp"
+        android:background="@color/white_snow"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="CaptionBold">10sp</dimen>
+    <dimen name="Footnote">12sp</dimen>
+    <dimen name="Body">14sp</dimen>
+    <dimen name="Headline">16sp</dimen>
+    <dimen name="Title">22sp</dimen>
+
+    <dimen name="radius_edit_text">8dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="margin_2dp">2dp</dimen>
+    <dimen name="margin_40dp">40dp</dimen>
+    <dimen name="padding_13dp">13dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
+    <dimen name="padding_6dp">6dp</dimen>
+    <dimen name="min_height_edt">48dp</dimen>
+    <dimen name="width_border">1dp</dimen>
+    <dimen name="radius_button">26dp</dimen>
+
+    <dimen name="size_circle">40dp</dimen>
+    <dimen name="radius_circle">25dp</dimen>
+    <dimen name="radius_search">18dp</dimen>
+    <dimen name="radius_message">16dp</dimen>
+    <dimen name="padding_circle">4dp</dimen>
+</resources>

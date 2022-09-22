@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:id="@+id/popup_windows_guest"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginBottom="@dimen/margin_8dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:paddingHorizontal="@dimen/padding_16dp"
+        android:paddingVertical="@dimen/margin_8dp"
+        android:minHeight="40dp"
+        android:background="@drawable/custom_background_option_dialog">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_love"
+            android:layout_marginEnd="@dimen/padding_16dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_thumbs_up"
+            android:layout_marginEnd="@dimen/padding_16dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_thumbs_down"
+            android:layout_marginEnd="@dimen/padding_13dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_lol"
+            android:layout_marginEnd="@dimen/padding_16dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wut"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_message_guest"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:text="Who was that photographer you shared with me recently?"
+            android:background="@drawable/custom_background_message_guest"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="@dimen/Body"/>
+
+        <LinearLayout
+            android:layout_width="264dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_background_option_dialog">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_curve_line_left_up"
+                android:drawablePadding="@dimen/padding_16dp"
+                android:text="Reply"
+                android:textSize="@dimen/Body"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:background="@drawable/custom_border_item_option_dialog"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_thread_reply"
+                android:drawablePadding="@dimen/padding_16dp"
+                android:text="Thread Reply"
+                android:textSize="@dimen/Body"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:background="@drawable/custom_border_item_option_dialog"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_copy"
+                android:drawablePadding="@dimen/padding_16dp"
+                android:text="Copy Message"
+                android:textSize="@dimen/Body"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:background="@drawable/custom_border_item_option_dialog"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_pencil_new"
+                android:drawablePadding="@dimen/padding_16dp"
+                android:text="Edit Message"
+                android:textSize="@dimen/Body"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:background="@drawable/custom_border_item_option_dialog"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_user_ban"
+                android:drawablePadding="@dimen/padding_16dp"
+                android:text="Block User"
+                android:textSize="@dimen/Body"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:background="@drawable/custom_border_item_option_dialog"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_delete"
+                android:drawablePadding="@dimen/padding_16dp"
+                android:text="Delete Message"
+                android:textSize="@dimen/Body"
+                android:textColor="@color/accent_red"
+                android:paddingVertical="@dimen/margin_8dp"
+                android:paddingHorizontal="@dimen/padding_16dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

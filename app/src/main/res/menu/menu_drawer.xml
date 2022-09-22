@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/new_direct_message"
+            android:icon="@drawable/ic_pencil_new"
+            android:title="@string/new_direct_message" />
+        <item
+            android:id="@+id/new_group"
+            android:icon="@drawable/ic_group"
+            android:title="@string/new_group" />
+    </group>
+</menu>

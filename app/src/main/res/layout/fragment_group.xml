@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_gradient_2"
+    tools:context=".GroupFragment">
+
+    <include
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/addgroup_members_appbar_layout"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_search"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="@dimen/padding_16dp"
+        android:hint="@string/search"
+        android:minHeight="48dp"
+        android:layout_margin="@dimen/margin_8dp"
+        android:padding="@dimen/margin_8dp"
+        android:textColorHint="@color/grey"
+        android:textSize="@dimen/Body" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_gradient_1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="On the platform"
+            android:textSize="@dimen/Footnote"
+            android:textStyle="bold"
+            android:textColor="@color/grey"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:paddingVertical="@dimen/padding_6dp"/>
+    </LinearLayout>
+
+    <se.emilsjolander.stickylistheaders.StickyListHeadersListView
+        android:id="@+id/lst_people"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

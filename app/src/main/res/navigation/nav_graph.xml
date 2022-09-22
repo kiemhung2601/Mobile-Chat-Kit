@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.mobilechatkit.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupFragment2"
+        android:name="com.example.mobilechatkit.GroupFragment"
+        android:label="fragment_group"
+        tools:layout="@layout/fragment_group" >
+        <action
+            android:id="@+id/action_groupFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_groupFragment2_to_nameGroupFragment"
+            app:destination="@id/nameGroupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.mobilechatkit.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_groupFragment2"
+            app:destination="@id/groupFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_messageViewFragment2"
+            app:destination="@id/messageViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nameGroupFragment"
+        android:name="com.example.mobilechatkit.NameGroupFragment"
+        android:label="fragment_name_group"
+        tools:layout="@layout/fragment_name_group" >
+        <action
+            android:id="@+id/action_nameGroupFragment_to_groupFragment2"
+            app:destination="@id/groupFragment2" />
+        <action
+            android:id="@+id/action_nameGroupFragment_to_chatBlankFragment"
+            app:destination="@id/chatBlankFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatBlankFragment"
+        android:name="com.example.mobilechatkit.ChatBlankFragment"
+        android:label="fragment_chat_blank"
+        tools:layout="@layout/fragment_chat_blank" >
+        <action
+            android:id="@+id/action_chatBlankFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageViewFragment"
+        android:name="com.example.mobilechatkit.MessageViewFragment"
+        android:label="fragment_message_view"
+        tools:layout="@layout/fragment_message_view" />
+</navigation>

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Mobile Chat Kit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chat_api_key">CHAT API KEY</string>
+    <string name="user_id">User ID</string>
+    <string name="user_token">User Token</string>
+    <string name="username_optional">Username (optional)</string>
+    <string name="advanced_options">Advanced Options</string>
+    <string name="stream_sdk_v_x_x_x">Stream SDK v X.X.X</string>
+    <string name="login">Login</string>
+    <string name="stream_chat">Stream Chat</string>
+    <string name="search">Search</string>
+    <string name="enter_to_setting">Enter to setting</string>
+    <string name="enter_to_write_message">Enter to write message</string>
+    <string name="avatar">Avatar</string>
+
+    <string name="new_direct_message">New Direct Message</string>
+    <string name="new_group">New Group</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="add_group_members">Add Group Members</string>
+    <string name="name_of_group_chat">Name of Group Chat</string>
+    <string name="choose_a_group_chat_name">Choose a group chat name</string>
+    <string name="send_a_message">Send a message</string>
+</resources>
