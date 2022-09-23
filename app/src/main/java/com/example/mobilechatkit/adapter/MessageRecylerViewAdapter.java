@@ -42,11 +42,11 @@ public class MessageRecylerViewAdapter extends RecyclerView.Adapter<RecyclerView
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         switch (viewType) {
             case 0:
-                View itemView0 = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_host_layout, parent, false);
-                return new ViewHolder0(itemView0);
+                View itemViewHost = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_host_layout, parent, false);
+                return new MessageHostViewHolder(itemViewHost);
             case 2:
-                View itemView2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_guest_layout, parent, false);
-                return new ViewHolder2(itemView2);
+                View itemViewGuest = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_guest_layout, parent, false);
+                return new MessageGuestViewHolder(itemViewGuest);
             default:
                 return null;
         }
@@ -61,9 +61,9 @@ public class MessageRecylerViewAdapter extends RecyclerView.Adapter<RecyclerView
 
         switch (holder.getItemViewType()) {
             case 0:
-                ViewHolder0 viewHolder0 = (ViewHolder0)holder;
-                viewHolder0.txtMessage.setText(message.getMessage());
-                viewHolder0.txtMessage.setOnLongClickListener(new View.OnLongClickListener() {
+                MessageHostViewHolder messageHostViewHolder0 = (MessageHostViewHolder)holder;
+                messageHostViewHolder0.txtMessage.setText(message.getMessage());
+                messageHostViewHolder0.txtMessage.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View view) {
                         Point p;
@@ -71,7 +71,7 @@ public class MessageRecylerViewAdapter extends RecyclerView.Adapter<RecyclerView
                         int[] location = new int[2];
                         // Get the x, y location and store it in the location[] array
                         // location[0] = x, location[1] = y.
-                        viewHolder0.txtMessage.getLocationOnScreen(location);
+                        messageHostViewHolder0.txtMessage.getLocationOnScreen(location);
 
                         //Initialize the Point with x, and y positions
                         p = new Point();
@@ -79,7 +79,7 @@ public class MessageRecylerViewAdapter extends RecyclerView.Adapter<RecyclerView
                         p.y = location[1];
 
                         if(p != null){
-                            String text = String.valueOf(viewHolder0.txtMessage.getText());
+                            String text = String.valueOf(messageHostViewHolder0.txtMessage.getText());
                             showPopup(activity, p, text, holder.getItemViewType());
                         }
                         return false;
@@ -88,9 +88,9 @@ public class MessageRecylerViewAdapter extends RecyclerView.Adapter<RecyclerView
                 break;
 
             case 2:
-                ViewHolder2 viewHolder2 = (ViewHolder2)holder;
-                viewHolder2.txtMessage.setText(message.getMessage());
-                viewHolder2.txtMessage.setOnLongClickListener(new View.OnLongClickListener() {
+                MessageGuestViewHolder messageGuestViewHolder = (MessageGuestViewHolder)holder;
+                messageGuestViewHolder.txtMessage.setText(message.getMessage());
+                messageGuestViewHolder.txtMessage.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View view) {
                         Point p;
@@ -98,7 +98,7 @@ public class MessageRecylerViewAdapter extends RecyclerView.Adapter<RecyclerView
                         int[] location = new int[2];
                         // Get the x, y location and store it in the location[] array
                         // location[0] = x, location[1] = y.
-                        viewHolder2.txtMessage.getLocationOnScreen(location);
+                        messageGuestViewHolder.txtMessage.getLocationOnScreen(location);
 
                         //Initialize the Point with x, and y positions
                         p = new Point();
@@ -106,7 +106,7 @@ public class MessageRecylerViewAdapter extends RecyclerView.Adapter<RecyclerView
                         p.y = location[1];
 
                         if(p != null){
-                            String text = String.valueOf(viewHolder2.txtMessage.getText());
+                            String text = String.valueOf(messageGuestViewHolder.txtMessage.getText());
                             showPopup(activity, p, text, holder.getItemViewType());
                         }
                         return false;
@@ -130,19 +130,19 @@ public class MessageRecylerViewAdapter extends RecyclerView.Adapter<RecyclerView
         return lstChat.get(positionChat).getLstMessage().size();
     }
 
-    class ViewHolder0 extends RecyclerView.ViewHolder {
+    class MessageHostViewHolder extends RecyclerView.ViewHolder {
         private TextView txtMessage;
 
-        public ViewHolder0(View itemView){
+        public MessageHostViewHolder(View itemView){
             super(itemView);
             txtMessage = itemView.findViewById(R.id.txt_message_host);
         }
     }
 
-    class ViewHolder2 extends RecyclerView.ViewHolder {
+    class MessageGuestViewHolder extends RecyclerView.ViewHolder {
         private TextView txtMessage;
 
-        public ViewHolder2(View itemView) {
+        public MessageGuestViewHolder(View itemView) {
             super(itemView);
             txtMessage = itemView.findViewById(R.id.txt_message_guest);
         }

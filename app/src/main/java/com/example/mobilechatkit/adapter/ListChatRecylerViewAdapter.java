@@ -31,11 +31,11 @@ public class ListChatRecylerViewAdapter extends RecyclerView.Adapter<RecyclerVie
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         switch (viewType) {
             case 0:
-                View itemView0 = LayoutInflater.from(parent.getContext()).inflate(R.layout.host_layout, parent, false);
-                return new ListChatRecylerViewAdapter.ViewHolder0(itemView0);
+                View itemViewHost = LayoutInflater.from(parent.getContext()).inflate(R.layout.host_layout, parent, false);
+                return new ListChatRecylerViewAdapter.HostViewHolder(itemViewHost);
             case 2:
-                View itemView2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.guest_layout, parent, false);
-                return new ListChatRecylerViewAdapter.ViewHolder2(itemView2);
+                View itemViewGuest = LayoutInflater.from(parent.getContext()).inflate(R.layout.guest_layout, parent, false);
+                return new ListChatRecylerViewAdapter.GuestViewHolder(itemViewGuest);
             default:
                 return null;
         }
@@ -50,27 +50,27 @@ public class ListChatRecylerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 
         switch (holder.getItemViewType()) {
             case 0:
-                ListChatRecylerViewAdapter.ViewHolder0 viewHolder0 = (ListChatRecylerViewAdapter.ViewHolder0)holder;
-                viewHolder0.txtTime.setText(chat.getTime());
+                ListChatRecylerViewAdapter.HostViewHolder viewHolderHost = (ListChatRecylerViewAdapter.HostViewHolder)holder;
+                viewHolderHost.txtTime.setText(chat.getTime());
 
                 LinearLayoutManager layoutManager = new LinearLayoutManager(activity.getApplicationContext());
-                viewHolder0.rcvMessage.setLayoutManager(layoutManager);
+                viewHolderHost.rcvMessage.setLayoutManager(layoutManager);
 
                 MessageRecylerViewAdapter messageRecylerViewAdapter = new MessageRecylerViewAdapter(lstChat, activity, position);
 
-                viewHolder0.rcvMessage.setAdapter(messageRecylerViewAdapter);
+                viewHolderHost.rcvMessage.setAdapter(messageRecylerViewAdapter);
                 break;
 
             case 2:
-                ListChatRecylerViewAdapter.ViewHolder2 viewHolder2 = (ListChatRecylerViewAdapter.ViewHolder2)holder;
-                viewHolder2.txtTime.setText(chat.getTime());
+                ListChatRecylerViewAdapter.GuestViewHolder viewHolderGuest = (ListChatRecylerViewAdapter.GuestViewHolder)holder;
+                viewHolderGuest.txtTime.setText(chat.getTime());
 
                 LinearLayoutManager layoutManager2 = new LinearLayoutManager(activity.getApplicationContext());
-                viewHolder2.rcvMessage.setLayoutManager(layoutManager2);
+                viewHolderGuest.rcvMessage.setLayoutManager(layoutManager2);
 
                 MessageRecylerViewAdapter messageRecylerViewAdapter2 = new MessageRecylerViewAdapter(lstChat, activity, position);
 
-                viewHolder2.rcvMessage.setAdapter(messageRecylerViewAdapter2);
+                viewHolderGuest.rcvMessage.setAdapter(messageRecylerViewAdapter2);
 
                 break;
         }
@@ -90,11 +90,11 @@ public class ListChatRecylerViewAdapter extends RecyclerView.Adapter<RecyclerVie
         }
     }
 
-    class ViewHolder0 extends RecyclerView.ViewHolder{
+    class HostViewHolder extends RecyclerView.ViewHolder{
         RecyclerView rcvMessage;
         TextView txtTime;
 
-        public ViewHolder0(@NonNull View itemView) {
+        public HostViewHolder(@NonNull View itemView) {
             super(itemView);
 
             rcvMessage = itemView.findViewById(R.id.rcv_message_host);
@@ -102,11 +102,11 @@ public class ListChatRecylerViewAdapter extends RecyclerView.Adapter<RecyclerVie
         }
     }
 
-    class ViewHolder2 extends RecyclerView.ViewHolder{
+    class GuestViewHolder extends RecyclerView.ViewHolder{
         RecyclerView rcvMessage;
         TextView txtTime;
 
-        public ViewHolder2(@NonNull View itemView) {
+        public GuestViewHolder(@NonNull View itemView) {
             super(itemView);
 
             rcvMessage = itemView.findViewById(R.id.rcv_message_guest);
