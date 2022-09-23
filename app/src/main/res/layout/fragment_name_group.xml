@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white_snow"
-    tools:context=".NameGroupFragment">
+    tools:context=".fragments.NameGroupFragment">
 
     <include
-        android:id="@+id/appbar"
+        android:id="@+id/fragment_name_group_appbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        layout="@layout/namegroup_members_appbar_layout"/>
+        layout="@layout/layout_appbar_namegroup_members"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:textSize="@dimen/Footnote"
             android:textColor="@color/grey"/>
         <EditText
-            android:id="@+id/edt_name_group"
+            android:id="@+id/fragment_name_group_et_name_group"
             android:layout_marginStart="@dimen/padding_16dp"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -37,7 +37,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txt_amount_people"
+        android:id="@+id/fragment_name_group_txt_amount_people"
         android:paddingHorizontal="@dimen/margin_8dp"
         android:paddingVertical="@dimen/padding_6dp"
         android:background="@drawable/custom_background_gradient"
@@ -48,7 +48,7 @@
         android:text="5 Members"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcv_people_added"
+        android:id="@+id/fragment_name_group_rcv_people_added"
         android:layout_marginTop="@dimen/margin_8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

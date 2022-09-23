@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.daimajia.swipe.SwipeLayout;
 import com.example.mobilechatkit.R;
 
-public class MyViewHolder extends RecyclerView.ViewHolder {
+public class SwipeViewHolder extends RecyclerView.ViewHolder {
     ImageView imgAvatar;
     TextView txtName, txtMessage, txtTime;
     public LinearLayout layoutForeGround;
 
-    public MyViewHolder(@NonNull View itemView) {
+    public SwipeViewHolder(@NonNull View itemView) {
         super(itemView);
 
         imgAvatar = itemView.findViewById(R.id.img_avatar);

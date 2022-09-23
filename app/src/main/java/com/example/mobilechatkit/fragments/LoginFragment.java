@@ -1,4 +1,4 @@
-package com.example.mobilechatkit;
+package com.example.mobilechatkit.fragments;
 
 import android.os.Bundle;
 
@@ -7,20 +7,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.example.mobilechatkit.adapter.RecyclerViewHorizontalAdapter;
+import com.example.mobilechatkit.R;
 import com.example.mobilechatkit.databinding.FragmentLoginBinding;
-import com.example.mobilechatkit.model.Message;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class LoginFragment extends Fragment {
 
@@ -32,7 +25,7 @@ public class LoginFragment extends Fragment {
 
         NavController navController = Navigation.findNavController(view);
 
-        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
+        binding.fragmentLoginBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_loginFragment_to_homeFragment);

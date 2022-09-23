@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MentionFragment">
+    tools:context=".fragments.MentionFragment">
 
     <ListView
-        android:id="@+id/lst_item_mention"
+        android:id="@+id/fragment_mention_lv_item_mention"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@android:color/transparent"/>

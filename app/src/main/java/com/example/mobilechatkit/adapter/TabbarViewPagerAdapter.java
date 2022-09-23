@@ -7,15 +7,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.mobilechatkit.ChatsFragment;
-import com.example.mobilechatkit.MentionFragment;
-import com.example.mobilechatkit.R;
+import com.example.mobilechatkit.fragments.ChatsFragment;
+import com.example.mobilechatkit.fragments.MentionFragment;
 
-public class MyViewPagerAdapter extends FragmentStateAdapter {
+public class TabbarViewPagerAdapter extends FragmentStateAdapter {
 
     private View view;
 
-    public MyViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, @NonNull View view) {
+    public TabbarViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, @NonNull View view) {
         super(fragmentActivity);
         this.view = view;
     }

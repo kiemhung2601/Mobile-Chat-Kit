@@ -13,12 +13,12 @@ import com.example.mobilechatkit.model.Message;
 
 import java.util.List;
 
-public class ListMessageAdapter extends BaseAdapter {
+public class ListMessageListViewAdapter extends BaseAdapter {
 
     private Activity activity;
     private List<Message> lstMessage;
 
-    public ListMessageAdapter(Activity activity, List<Message> lstMessage) {
+    public ListMessageListViewAdapter(Activity activity, List<Message> lstMessage) {
         this.activity = activity;
         this.lstMessage = lstMessage;
     }
@@ -42,7 +42,7 @@ public class ListMessageAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = activity.getLayoutInflater();
 
-        view = inflater.inflate(R.layout.item_mention_layout, null);
+        view = inflater.inflate(R.layout.layout_item_mess_mention, null);
 
         TextView txtName = view.findViewById(R.id.txt_name);
         TextView txtMessage = view.findViewById(R.id.txt_message);

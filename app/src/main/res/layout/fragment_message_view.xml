@@ -6,28 +6,28 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/fore_ground_mess"
-    tools:context=".MessageViewFragment">
+    tools:context=".fragments.MessageViewFragment">
 
     <include
-        android:id="@+id/include2"
-        layout="@layout/chat_appbar_layout"
+        android:id="@+id/fragment_message_view_appbar"
+        layout="@layout/layout_appbar_chat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:paddingHorizontal="@dimen/margin_8dp"
-        android:id="@+id/recycler_view_chat"
+        android:id="@+id/fragment_message_view_rcv_chat"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="@dimen/padding_16dp"
-        app:layout_constraintBottom_toTopOf="@+id/include"
-        app:layout_constraintTop_toBottomOf="@+id/include2" />
+        app:layout_constraintBottom_toTopOf="@+id/fragment_message_view_chat_message"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_message_view_appbar" />
 
     <include
-        android:id="@+id/include"
-        layout="@layout/chat_message_layout"
+        android:id="@+id/fragment_message_view_chat_message"
+        layout="@layout/layout_chat_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"

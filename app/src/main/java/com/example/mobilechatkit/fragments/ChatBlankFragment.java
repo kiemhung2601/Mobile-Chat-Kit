@@ -1,4 +1,4 @@
-package com.example.mobilechatkit;
+package com.example.mobilechatkit.fragments;
 
 import android.os.Bundle;
 
@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.mobilechatkit.R;
 import com.example.mobilechatkit.databinding.FragmentChatBlankBinding;
 
 public class ChatBlankFragment extends Fragment {
@@ -28,10 +29,10 @@ public class ChatBlankFragment extends Fragment {
         String name = getArguments().getString("nameGroup");
         String amount = getArguments().getString("amountPeople");
 
-        biding.appbar.txtNameGroup.setText(name);
-        biding.appbar.txtAmountMembers.setText(amount + " Members, 1 Online");
+        biding.fragmentChatBlankAppbar.txtNameGroup.setText(name);
+        biding.fragmentChatBlankAppbar.txtAmountMembers.setText(amount + " Members, 1 Online");
         NavController navController = Navigation.findNavController(view);
-        biding.appbar.imbBack.setOnClickListener(new View.OnClickListener() {
+        biding.fragmentChatBlankAppbar.imbBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.homeFragment, true).build();

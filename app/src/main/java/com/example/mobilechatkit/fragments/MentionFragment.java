@@ -1,4 +1,4 @@
-package com.example.mobilechatkit;
+package com.example.mobilechatkit.fragments;
 
 import android.os.Bundle;
 
@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
-import com.example.mobilechatkit.adapter.ListMessageAdapter;
+import com.example.mobilechatkit.R;
+import com.example.mobilechatkit.adapter.ListMessageListViewAdapter;
 import com.example.mobilechatkit.databinding.FragmentMentionBinding;
 import com.example.mobilechatkit.model.Message;
 
@@ -30,8 +30,8 @@ public class MentionFragment extends Fragment {
 
         lstMessage = getListMessage();
 
-        ListMessageAdapter listMessageAdapter = new ListMessageAdapter(getActivity(), lstMessage);
-        biding.lstItemMention.setAdapter(listMessageAdapter);
+        ListMessageListViewAdapter listMessageListViewAdapter = new ListMessageListViewAdapter(getActivity(), lstMessage);
+        biding.fragmentMentionLvItemMention.setAdapter(listMessageListViewAdapter);
 
     }
 

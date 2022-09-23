@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/bg_gradient_2"
-    tools:context=".GroupFragment">
+    tools:context=".fragments.GroupFragment">
 
     <include
-        android:id="@+id/appbar"
+        android:id="@+id/fragment_group_appbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        layout="@layout/addgroup_members_appbar_layout"/>
+        layout="@layout/layout_appbar_addgroup_members"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
     </LinearLayout>
 
     <se.emilsjolander.stickylistheaders.StickyListHeadersListView
-        android:id="@+id/lst_people"
+        android:id="@+id/fragment_group_slst_people"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

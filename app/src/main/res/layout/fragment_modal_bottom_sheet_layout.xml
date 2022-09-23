@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/custom_bottom_sheet"
-    tools:context=".ModalBottomSheetFragment">
+    tools:context=".fragments.ModalBottomSheetFragment">
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:padding="@dimen/padding_16dp"
-        android:id="@+id/recycler_view_horizontal"
+        android:id="@+id/fragment_bottomsheet_rcv_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"/>

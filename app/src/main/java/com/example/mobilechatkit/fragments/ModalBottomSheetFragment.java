@@ -1,4 +1,4 @@
-package com.example.mobilechatkit;
+package com.example.mobilechatkit.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,9 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mobilechatkit.adapter.RecyclerViewHorizontalAdapter;
+import com.example.mobilechatkit.R;
+import com.example.mobilechatkit.adapter.HorizontalBotttomSheetRecyclerViewAdapter;
 import com.example.mobilechatkit.databinding.FragmentModalBottomSheetLayoutBinding;
 import com.example.mobilechatkit.model.Message;
 
@@ -22,7 +22,7 @@ import java.util.List;
 public class ModalBottomSheetFragment extends Fragment {
 
     private List<Message> lstMessage = new ArrayList<>();
-    RecyclerViewHorizontalAdapter recyclerViewHorizontalAdapter;
+    HorizontalBotttomSheetRecyclerViewAdapter recyclerViewHorizontalAdapter;
     LinearLayoutManager layoutManager;
 
     FragmentModalBottomSheetLayoutBinding binding;
@@ -31,15 +31,15 @@ public class ModalBottomSheetFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.recyclerViewHorizontal.setHasFixedSize(true);
+        binding.fragmentBottomsheetRcvHorizontal.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getContext());
-        binding.recyclerViewHorizontal.setLayoutManager(layoutManager);
+        binding.fragmentBottomsheetRcvHorizontal.setLayoutManager(layoutManager);
 
         lstMessage = getListMessage();
 
-        recyclerViewHorizontalAdapter = new RecyclerViewHorizontalAdapter(getContext(), lstMessage);
+        recyclerViewHorizontalAdapter = new HorizontalBotttomSheetRecyclerViewAdapter(getContext(), lstMessage);
 
-        binding.recyclerViewHorizontal.setAdapter(recyclerViewHorizontalAdapter);
+        binding.fragmentBottomsheetRcvHorizontal.setAdapter(recyclerViewHorizontalAdapter);
     }
 
     @Override

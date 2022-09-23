@@ -15,12 +15,12 @@ import com.example.mobilechatkit.model.Message;
 
 import java.util.List;
 
-public class RecyclerViewHorizontalAdapter extends RecyclerView.Adapter<RecyclerViewHorizontalAdapter.HorizontalViewHolder> {
+public class HorizontalBotttomSheetRecyclerViewAdapter extends RecyclerView.Adapter<HorizontalBotttomSheetRecyclerViewAdapter.HorizontalViewHolder> {
 
     Context context;
     List<Message> lstMessage;
 
-    public RecyclerViewHorizontalAdapter(Context context, List<Message> lstMessage) {
+    public HorizontalBotttomSheetRecyclerViewAdapter(Context context, List<Message> lstMessage) {
         this.context = context;
         this.lstMessage = lstMessage;
     }
@@ -28,7 +28,7 @@ public class RecyclerViewHorizontalAdapter extends RecyclerView.Adapter<Recycler
     @NonNull
     @Override
     public HorizontalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.item_bottom_sheet_layount, parent, false);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.layout_item_bottom_sheet, parent, false);
 
         return new HorizontalViewHolder(itemView);
     }

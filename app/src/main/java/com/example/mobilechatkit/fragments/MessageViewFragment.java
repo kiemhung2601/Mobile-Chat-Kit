@@ -1,4 +1,4 @@
-package com.example.mobilechatkit;
+package com.example.mobilechatkit.fragments;
 
 import android.os.Bundle;
 
@@ -36,15 +36,15 @@ public class MessageViewFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setReverseLayout(true);
-        binding.recyclerViewChat.setLayoutManager(layoutManager);
+        binding.fragmentMessageViewRcvChat.setLayoutManager(layoutManager);
 
         ListChatRecylerViewAdapter listChatRecylerViewAdapter = new ListChatRecylerViewAdapter(getActivity(), lstChat);
-        binding.recyclerViewChat.setAdapter(listChatRecylerViewAdapter);
+        binding.fragmentMessageViewRcvChat.setAdapter(listChatRecylerViewAdapter);
 
-        binding.include.imbSend.setOnClickListener(new View.OnClickListener() {
+        binding.fragmentMessageViewChatMessage.imbSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.recyclerViewChat.smoothScrollToPosition(0);
+                binding.fragmentMessageViewRcvChat.smoothScrollToPosition(0);
             }
         });
     }

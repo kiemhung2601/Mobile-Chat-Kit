@@ -15,18 +15,18 @@ import com.example.mobilechatkit.model.People;
 
 import java.util.List;
 
-public class NameGroupAdapter extends RecyclerView.Adapter<NameGroupAdapter.NameAddedViewHolder> {
+public class ListAddedGroupRecyclerViewAdapter extends RecyclerView.Adapter<ListAddedGroupRecyclerViewAdapter.NameAddedViewHolder> {
 
     private List<People> lstPeople;
 
-    public NameGroupAdapter(List<People> lstPeople) {
+    public ListAddedGroupRecyclerViewAdapter(List<People> lstPeople) {
         this.lstPeople = lstPeople;
     }
 
     @NonNull
     @Override
     public NameAddedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_name_group, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_added_members, parent, false);
 
         return new NameAddedViewHolder(itemView);
     }

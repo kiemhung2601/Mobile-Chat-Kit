@@ -1,13 +1,8 @@
 package com.example.mobilechatkit.adapter;
 
-import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,25 +13,25 @@ import com.example.mobilechatkit.my_interface.IClickItemListener;
 
 import java.util.List;
 
-public class SwipeAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class ListSwipeRecyclerViewAdapter extends RecyclerView.Adapter<SwipeViewHolder> {
     List<Message> lstMessage;
     private IClickItemListener iClickItemListener;
 
-    public SwipeAdapter(List<Message> lstMessage, IClickItemListener listener) {
+    public ListSwipeRecyclerViewAdapter(List<Message> lstMessage, IClickItemListener listener) {
         this.lstMessage = lstMessage;
         this.iClickItemListener = listener;
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mess_layout, parent, false);
+    public SwipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_mess_home, parent, false);
 
-        return new MyViewHolder(itemView);
+        return new SwipeViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SwipeViewHolder holder, int position) {
         final Message message = lstMessage.get(position);
         if(message == null){
             return;

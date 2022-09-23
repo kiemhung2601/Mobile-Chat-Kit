@@ -1,4 +1,4 @@
-package com.example.mobilechatkit;
+package com.example.mobilechatkit.fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,9 +16,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mobilechatkit.adapter.MyViewHolder;
-import com.example.mobilechatkit.adapter.RecyclerViewHorizontalAdapter;
-import com.example.mobilechatkit.adapter.SwipeAdapter;
+import com.example.mobilechatkit.R;
+import com.example.mobilechatkit.RecylerViewItemTouchHelper;
+import com.example.mobilechatkit.adapter.SwipeViewHolder;
+import com.example.mobilechatkit.adapter.HorizontalBotttomSheetRecyclerViewAdapter;
+import com.example.mobilechatkit.adapter.ListSwipeRecyclerViewAdapter;
 import com.example.mobilechatkit.databinding.FragmentChatsBinding;
 import com.example.mobilechatkit.model.Message;
 import com.example.mobilechatkit.my_interface.IClickItemListener;
@@ -38,7 +40,7 @@ public class ChatsFragment extends Fragment implements ItemTouchHelperListener {
     }
 
     private List<Message> lstMessage = new ArrayList<>();
-    SwipeAdapter swipeAdapter;
+    ListSwipeRecyclerViewAdapter swipeAdapter;
     LinearLayoutManager layoutManager;
 
 
@@ -48,15 +50,15 @@ public class ChatsFragment extends Fragment implements ItemTouchHelperListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        biding.rcvMess.setHasFixedSize(true);
+        biding.fragmentChatsRcvMess.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getContext());
-        biding.rcvMess.setLayoutManager(layoutManager);
+        biding.fragmentChatsRcvMess.setLayoutManager(layoutManager);
 
         lstMessage = getListMessage();
 
         NavController navController = Navigation.findNavController(viewParent);
 
-        swipeAdapter = new SwipeAdapter(lstMessage, new IClickItemListener() {
+        swipeAdapter = new ListSwipeRecyclerViewAdapter(lstMessage, new IClickItemListener() {
             @Override
             public void onLongClickItemUser(Message mesage) {
                 clickOpenBottomSheetDialog(view);
@@ -68,10 +70,10 @@ public class ChatsFragment extends Fragment implements ItemTouchHelperListener {
             }
         });
 
-        biding.rcvMess.setAdapter(swipeAdapter);
+        biding.fragmentChatsRcvMess.setAdapter(swipeAdapter);
 
         ItemTouchHelper.SimpleCallback simpleCallback = new RecylerViewItemTouchHelper(0, ItemTouchHelper.LEFT, this);
-        new ItemTouchHelper(simpleCallback).attachToRecyclerView(biding.rcvMess);
+        new ItemTouchHelper(simpleCallback).attachToRecyclerView(biding.fragmentChatsRcvMess);
     }
 
     @Override
@@ -101,7 +103,7 @@ public class ChatsFragment extends Fragment implements ItemTouchHelperListener {
 
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder) {
-        if(viewHolder instanceof MyViewHolder) {
+        if(viewHolder instanceof SwipeViewHolder) {
             String nameUserDelete = lstMessage.get(viewHolder.getAdapterPosition()).getName();
 
             Message messageDelete = lstMessage.get(viewHolder.getAdapterPosition());
@@ -127,10 +129,10 @@ public class ChatsFragment extends Fragment implements ItemTouchHelperListener {
 
         List<Message> lstMessage;
         RecyclerView recyclerViewBottom;
-        RecyclerViewHorizontalAdapter recyclerViewHorizontalAdapter;
+        HorizontalBotttomSheetRecyclerViewAdapter recyclerViewHorizontalAdapter;
         LinearLayoutManager layoutManagerBottom;
 
-        recyclerViewBottom = viewDialog.findViewById(R.id.recycler_view_horizontal);
+        recyclerViewBottom = viewDialog.findViewById(R.id.fragment_bottomsheet_rcv_horizontal);
 
         recyclerViewBottom.setHasFixedSize(true);
         layoutManagerBottom = new LinearLayoutManager(viewDialog.getContext(), RecyclerView.HORIZONTAL, false);
@@ -138,7 +140,7 @@ public class ChatsFragment extends Fragment implements ItemTouchHelperListener {
 
         lstMessage = getListMessage();
 
-        recyclerViewHorizontalAdapter = new RecyclerViewHorizontalAdapter(viewDialog.getContext(), lstMessage);
+        recyclerViewHorizontalAdapter = new HorizontalBotttomSheetRecyclerViewAdapter(viewDialog.getContext(), lstMessage);
         recyclerViewBottom.setAdapter(recyclerViewHorizontalAdapter);
 
         BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getContext(), R.style.BottomSheetDialogTheme);

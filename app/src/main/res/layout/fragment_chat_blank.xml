@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ChatBlankFragment">
+    tools:context=".fragments.ChatBlankFragment">
 
     <include
-        android:id="@+id/appbar"
+        android:id="@+id/fragment_chat_blank_appbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        layout="@layout/chat_appbar_layout"/>
+        layout="@layout/layout_appbar_chat"/>
 
     <TextView
         android:layout_weight="1"
@@ -24,6 +24,6 @@
     <include
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        layout="@layout/chat_message_layout"/>
+        layout="@layout/layout_chat_message"/>
 
 </LinearLayout>

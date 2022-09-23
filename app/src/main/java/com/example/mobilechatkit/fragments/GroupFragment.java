@@ -1,4 +1,4 @@
-package com.example.mobilechatkit;
+package com.example.mobilechatkit.fragments;
 
 import android.os.Bundle;
 
@@ -12,20 +12,18 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
-import com.example.mobilechatkit.adapter.PeopleAdapter;
+import com.example.mobilechatkit.R;
+import com.example.mobilechatkit.adapter.ListPeopleStickyListAdapter;
 import com.example.mobilechatkit.databinding.FragmentGroupBinding;
 import com.example.mobilechatkit.model.People;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
-
 public class GroupFragment extends Fragment {
 
-    private PeopleAdapter peopleAdapter;
+    private ListPeopleStickyListAdapter peopleAdapter;
 
     FragmentGroupBinding biding;
 
@@ -33,14 +31,14 @@ public class GroupFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        peopleAdapter = new PeopleAdapter();
+        peopleAdapter = new ListPeopleStickyListAdapter();
 
         peopleAdapter.setData(getListPeople());
-        biding.lstPeople.setAdapter(peopleAdapter);
+        biding.fragmentGroupSlstPeople.setAdapter(peopleAdapter);
 
         NavController navController = Navigation.findNavController(view);
 
-        biding.appbar.imbBack.setOnClickListener(new View.OnClickListener() {
+        biding.fragmentGroupAppbar.imbBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.homeFragment, true).build();
@@ -48,7 +46,7 @@ public class GroupFragment extends Fragment {
             }
         });
 
-        biding.appbar.imbNext.setOnClickListener(new View.OnClickListener() {
+        biding.fragmentGroupAppbar.imbNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_groupFragment2_to_nameGroupFragment);

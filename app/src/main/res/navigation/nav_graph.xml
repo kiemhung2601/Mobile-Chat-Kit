@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.mobilechatkit.LoginFragment"
+        android:name="com.example.mobilechatkit.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/groupFragment2"
-        android:name="com.example.mobilechatkit.GroupFragment"
+        android:name="com.example.mobilechatkit.fragments.GroupFragment"
         android:label="fragment_group"
         tools:layout="@layout/fragment_group" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.mobilechatkit.HomeFragment"
+        android:name="com.example.mobilechatkit.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/nameGroupFragment"
-        android:name="com.example.mobilechatkit.NameGroupFragment"
+        android:name="com.example.mobilechatkit.fragments.NameGroupFragment"
         android:label="fragment_name_group"
         tools:layout="@layout/fragment_name_group" >
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/chatBlankFragment"
-        android:name="com.example.mobilechatkit.ChatBlankFragment"
+        android:name="com.example.mobilechatkit.fragments.ChatBlankFragment"
         android:label="fragment_chat_blank"
         tools:layout="@layout/fragment_chat_blank" >
         <action
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/messageViewFragment"
-        android:name="com.example.mobilechatkit.MessageViewFragment"
+        android:name="com.example.mobilechatkit.fragments.MessageViewFragment"
         android:label="fragment_message_view"
         tools:layout="@layout/fragment_message_view" />
 </navigation>

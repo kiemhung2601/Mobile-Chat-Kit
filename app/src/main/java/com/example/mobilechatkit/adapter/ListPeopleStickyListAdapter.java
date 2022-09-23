@@ -7,9 +7,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.mobilechatkit.R;
 import com.example.mobilechatkit.model.People;
 
@@ -17,7 +14,7 @@ import java.util.List;
 
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
-public class PeopleAdapter extends BaseAdapter implements StickyListHeadersAdapter {
+public class ListPeopleStickyListAdapter extends BaseAdapter implements StickyListHeadersAdapter {
 
     private List<People> lstPeople;
 
@@ -31,7 +28,7 @@ public class PeopleAdapter extends BaseAdapter implements StickyListHeadersAdapt
         HeaderViewHolder headerViewHolder;
         if(convertView == null){
             headerViewHolder = new HeaderViewHolder();
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_header, parent, false);
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_header_sticky, parent, false);
 
             headerViewHolder.tvHeader = convertView.findViewById(R.id.tv_header);
             convertView.setTag(headerViewHolder);
@@ -71,7 +68,7 @@ public class PeopleAdapter extends BaseAdapter implements StickyListHeadersAdapt
         PeopleViewHolder peopleViewHolder;
         if(view == null){
             peopleViewHolder = new PeopleViewHolder();
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_people, viewGroup, false);
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_item_people, viewGroup, false);
             peopleViewHolder.tvName = view.findViewById(R.id.txt_name);
             peopleViewHolder.imgAvatar = view.findViewById(R.id.img_avatar);
 

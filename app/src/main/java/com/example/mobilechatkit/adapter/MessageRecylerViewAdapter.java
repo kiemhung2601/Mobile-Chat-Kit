@@ -42,10 +42,10 @@ public class MessageRecylerViewAdapter extends RecyclerView.Adapter<RecyclerView
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         switch (viewType) {
             case 0:
-                View itemViewHost = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_host_layout, parent, false);
+                View itemViewHost = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_message_host, parent, false);
                 return new MessageHostViewHolder(itemViewHost);
             case 2:
-                View itemViewGuest = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_guest_layout, parent, false);
+                View itemViewGuest = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_message_guest, parent, false);
                 return new MessageGuestViewHolder(itemViewGuest);
             default:
                 return null;
@@ -161,7 +161,7 @@ public class MessageRecylerViewAdapter extends RecyclerView.Adapter<RecyclerView
             LinearLayout viewGroup = (LinearLayout) context.findViewById(R.id.popup_windows_host);
             LayoutInflater layoutInflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            layout = layoutInflater.inflate(R.layout.popup_windows_host_layout, viewGroup);
+            layout = layoutInflater.inflate(R.layout.layout_popup_windows_host, viewGroup);
 
             txtMessage = layout.findViewById(R.id.txt_message_host);
         } else{
@@ -169,7 +169,7 @@ public class MessageRecylerViewAdapter extends RecyclerView.Adapter<RecyclerView
             LinearLayout viewGroup = (LinearLayout) context.findViewById(R.id.popup_windows_guest);
             LayoutInflater layoutInflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            layout = layoutInflater.inflate(R.layout.popup_windows_guest_layout, viewGroup);
+            layout = layoutInflater.inflate(R.layout.layout_popup_windows_guest, viewGroup);
 
             txtMessage = layout.findViewById(R.id.txt_message_guest);
         }

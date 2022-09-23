@@ -1,7 +1,6 @@
 package com.example.mobilechatkit.adapter;
 
 import android.app.Activity;
-import android.graphics.Point;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,10 +30,10 @@ public class ListChatRecylerViewAdapter extends RecyclerView.Adapter<RecyclerVie
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         switch (viewType) {
             case 0:
-                View itemViewHost = LayoutInflater.from(parent.getContext()).inflate(R.layout.host_layout, parent, false);
+                View itemViewHost = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_host, parent, false);
                 return new ListChatRecylerViewAdapter.HostViewHolder(itemViewHost);
             case 2:
-                View itemViewGuest = LayoutInflater.from(parent.getContext()).inflate(R.layout.guest_layout, parent, false);
+                View itemViewGuest = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_guest, parent, false);
                 return new ListChatRecylerViewAdapter.GuestViewHolder(itemViewGuest);
             default:
                 return null;
