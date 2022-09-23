@@ -11,46 +11,40 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
 
-import com.example.mobilechatkit.adapter.ListChatAdapter;
-import com.example.mobilechatkit.adapter.ListMessageAdapter;
-import com.example.mobilechatkit.adapter.MessageGuestAdapter;
-import com.example.mobilechatkit.adapter.MessageHostAdapter;
-import com.example.mobilechatkit.adapter.SwipeAdapter;
+import com.example.mobilechatkit.adapter.ListChatRecylerViewAdapter;
+import com.example.mobilechatkit.databinding.FragmentMessageViewBinding;
 import com.example.mobilechatkit.model.Chat;
-import com.example.mobilechatkit.model.Message;
 import com.example.mobilechatkit.model.MessagesChat;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MessageViewFragment extends Fragment {
 
     private List<Chat> lstChat = new ArrayList<>();
-    private ListView lstView;
 
-    private ImageButton imbSend;
+    FragmentMessageViewBinding binding;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        lstView = view.findViewById(R.id.list_view_chat);
-        imbSend = view.findViewById(R.id.imb_send);
-
         lstChat = getListChat();
 
-        ListChatAdapter listChatAdapter = new ListChatAdapter(getActivity(), lstChat);
-        lstView.setAdapter(listChatAdapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setReverseLayout(true);
+        binding.recyclerViewChat.setLayoutManager(layoutManager);
 
+        ListChatRecylerViewAdapter listChatRecylerViewAdapter = new ListChatRecylerViewAdapter(getActivity(), lstChat);
+        binding.recyclerViewChat.setAdapter(listChatRecylerViewAdapter);
 
-        imbSend.setOnClickListener(new View.OnClickListener() {
+        binding.include.imbSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                lstView.smoothScrollToPosition(lstChat.size());
+                binding.recyclerViewChat.smoothScrollToPosition(0);
             }
         });
     }
@@ -69,7 +63,7 @@ public class MessageViewFragment extends Fragment {
 
         List<MessagesChat> lstMessage3 = new ArrayList<>();
         lstMessage3.add(new MessagesChat("@andrewJ: do you like this imgur picture?"));
-        lstMessage3.add(new MessagesChat("Who was that photographer you shared with me recently?"));
+        lstMessage3.add(new MessagesChat("Who was that photographer you shared with me recently?  zcczd ghyhv jjgg fvg yugu yutuy"));
 
         List<MessagesChat> lstMessage4 = new ArrayList<>();
         lstMessage4.add(new MessagesChat("Who was that photographer you shared with me recently? dsfsdfsd dsf sdaf sdf sdaf sd fsda fsdafsda fsd f sdafsadf sdfsadf sadfsdafsdaf sdafasdfsda fsdafsdafsda fsadfsdfsad"));
@@ -80,12 +74,12 @@ public class MessageViewFragment extends Fragment {
 
         List<Chat> lstChat = new ArrayList<>();
         lstChat.add(new Chat(lstMessage,"3:00PM", true));
-        lstChat.add(new Chat(lstMessage1,"3:00PM", false));
-        lstChat.add(new Chat(lstMessage2,"3:00PM", true));
-        lstChat.add(new Chat(lstMessage5,"3:00PM", false));
-        lstChat.add(new Chat(lstMessage4,"3:00PM", true));
-        lstChat.add(new Chat(lstMessage2,"3:00PM", false));
-        lstChat.add(new Chat(lstMessage3,"3:00PM", true));
+        lstChat.add(new Chat(lstMessage1,"2:50PM", false));
+        lstChat.add(new Chat(lstMessage2,"2:40PM", true));
+        lstChat.add(new Chat(lstMessage5,"2:35PM", false));
+        lstChat.add(new Chat(lstMessage4,"2:30PM", true));
+        lstChat.add(new Chat(lstMessage2,"2:25PM", false));
+        lstChat.add(new Chat(lstMessage3,"2:20PM", true));
 
         return lstChat;
     }
@@ -93,6 +87,7 @@ public class MessageViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_message_view, container, false);
+        binding = FragmentMessageViewBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 }

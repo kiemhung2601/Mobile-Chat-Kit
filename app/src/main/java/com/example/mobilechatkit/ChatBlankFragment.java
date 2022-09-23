@@ -15,25 +15,23 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.mobilechatkit.databinding.FragmentChatBlankBinding;
+
 public class ChatBlankFragment extends Fragment {
 
-    private ImageButton imbBack;
-    private TextView txtNameGroup, txtAmountPeople;
+    FragmentChatBlankBinding biding;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        imbBack = view.findViewById(R.id.imb_back);
-        txtNameGroup = view.findViewById(R.id.txt_name_group);
-        txtAmountPeople = view.findViewById(R.id.txt_amount_members);
 
         String name = getArguments().getString("nameGroup");
         String amount = getArguments().getString("amountPeople");
 
-        txtNameGroup.setText(name);
-        txtAmountPeople.setText(amount + " Members, 1 Online");
+        biding.appbar.txtNameGroup.setText(name);
+        biding.appbar.txtAmountMembers.setText(amount + " Members, 1 Online");
         NavController navController = Navigation.findNavController(view);
-        imbBack.setOnClickListener(new View.OnClickListener() {
+        biding.appbar.imbBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.homeFragment, true).build();
@@ -45,6 +43,7 @@ public class ChatBlankFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_chat_blank, container, false);
+        biding = FragmentChatBlankBinding.inflate(inflater, container, false);
+        return biding.getRoot();
     }
 }

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.mobilechatkit.adapter.ListMessageAdapter;
+import com.example.mobilechatkit.databinding.FragmentMentionBinding;
 import com.example.mobilechatkit.model.Message;
 
 import java.util.ArrayList;
@@ -20,25 +21,25 @@ import java.util.List;
 public class MentionFragment extends Fragment {
 
     private List<Message> lstMessage = new ArrayList<>();
-    private ListView lstView;
+
+    FragmentMentionBinding biding;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        lstView = view.findViewById(R.id.lst_item_mention);
-
         lstMessage = getListMessage();
 
         ListMessageAdapter listMessageAdapter = new ListMessageAdapter(getActivity(), lstMessage);
-        lstView.setAdapter(listMessageAdapter);
+        biding.lstItemMention.setAdapter(listMessageAdapter);
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_mention, container, false);
+        biding = FragmentMentionBinding.inflate(inflater, container, false);
+        return biding.getRoot();
     }
 
     private List<Message> getListMessage(){

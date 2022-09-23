@@ -21,16 +21,14 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.example.mobilechatkit.adapter.MyViewPagerAdapter;
+import com.example.mobilechatkit.databinding.FragmentHomeBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomeFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
 
-    DrawerLayout mDrawerLayout;
-    private ImageButton imbAvatarAccount, imbCreateGroup;
-    private ViewPager2 mViewPager2;
-    private BottomNavigationView mBottomNavigationView;
+    FragmentHomeBinding binding;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -38,53 +36,46 @@ public class HomeFragment extends Fragment implements NavigationView.OnNavigatio
 
         NavController navController = Navigation.findNavController(view);
 
-        mDrawerLayout = view.findViewById(R.id.drawer_layout);
-        imbAvatarAccount = view.findViewById(R.id.imb_avt_account);
-        imbCreateGroup = view. findViewById(R.id.imb_create_group);
-
-        mViewPager2 = view.findViewById(R.id.view_pager_2);
-        mBottomNavigationView = view.findViewById(R.id.bottomNavigationView);
-
         MyViewPagerAdapter myViewPagerAdapter = new MyViewPagerAdapter(getActivity(), view);
 
-        mViewPager2.setAdapter(myViewPagerAdapter);
+        binding.viewPager2.setAdapter(myViewPagerAdapter);
 
-        mBottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+        binding.bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if(id == R.id.chats){
-                    mViewPager2.setCurrentItem(0);
+                    binding.viewPager2.setCurrentItem(0);
                 } else if(id == R.id.mentions){
-                    mViewPager2.setCurrentItem(1);
+                    binding.viewPager2.setCurrentItem(1);
                 }
                 return true;
             }
         });
 
-        mViewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+        binding.viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 switch (position) {
                     case 0:
-                        mBottomNavigationView.getMenu().findItem(R.id.chats).setChecked(true);
+                        binding.bottomNavigationView.getMenu().findItem(R.id.chats).setChecked(true);
                         break;
                     case 1:
-                        mBottomNavigationView.getMenu().findItem(R.id.mentions).setChecked(true);
+                        binding.bottomNavigationView.getMenu().findItem(R.id.mentions).setChecked(true);
                         break;
                 }
             }
         });
 
-        imbAvatarAccount.setOnClickListener(new View.OnClickListener() {
+        binding.appbar.imbAvtAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDrawerLayout.openDrawer(Gravity.LEFT);
+                binding.drawerLayout.openDrawer(Gravity.LEFT);
             }
         });
 
-        imbCreateGroup.setOnClickListener(new View.OnClickListener() {
+        binding.appbar.imbCreateGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_homeFragment_to_groupFragment2);
@@ -98,7 +89,8 @@ public class HomeFragment extends Fragment implements NavigationView.OnNavigatio
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override
@@ -110,7 +102,7 @@ public class HomeFragment extends Fragment implements NavigationView.OnNavigatio
 
         }
 
-        mDrawerLayout.closeDrawer(GravityCompat.START);
+        binding.drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 

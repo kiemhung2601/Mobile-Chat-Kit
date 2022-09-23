@@ -8,6 +8,7 @@
     tools:context=".GroupFragment">
 
     <include
+        android:id="@+id/appbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         layout="@layout/addgroup_members_appbar_layout"/>

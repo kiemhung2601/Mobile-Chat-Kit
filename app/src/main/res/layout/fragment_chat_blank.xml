@@ -7,6 +7,7 @@
     tools:context=".ChatBlankFragment">
 
     <include
+        android:id="@+id/appbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         layout="@layout/chat_appbar_layout"/>

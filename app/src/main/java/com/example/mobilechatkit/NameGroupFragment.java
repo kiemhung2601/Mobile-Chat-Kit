@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.mobilechatkit.adapter.NameGroupAdapter;
+import com.example.mobilechatkit.databinding.FragmentNameGroupBinding;
 import com.example.mobilechatkit.model.Message;
 import com.example.mobilechatkit.model.People;
 
@@ -28,36 +29,28 @@ import java.util.List;
 public class NameGroupFragment extends Fragment {
 
     private List<People> lstPeople = new ArrayList<>();
-    private RecyclerView recyclerView;
     NameGroupAdapter nameGroupAdapter;
     LinearLayoutManager layoutManager;
-    private TextView txtAmountPeople;
-    private ImageButton imbBack, imbDone;
-    private EditText edtNameGroup;
+
+    FragmentNameGroupBinding biding;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = view.findViewById(R.id.rcv_people_added);
-        txtAmountPeople = view.findViewById(R.id.txt_amount_people);
-        imbBack = view.findViewById(R.id.imb_back);
-        imbDone = view.findViewById(R.id.imb_done);
-        edtNameGroup = view.findViewById(R.id.edt_name_group);
-
         layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
+        biding.rcvPeopleAdded.setLayoutManager(layoutManager);
 
         lstPeople = getListPeople();
 
         nameGroupAdapter = new NameGroupAdapter(lstPeople);
 
-        recyclerView.setAdapter(nameGroupAdapter);
+        biding.rcvPeopleAdded.setAdapter(nameGroupAdapter);
 
-        txtAmountPeople.setText(lstPeople.size() + " Members");
+        biding.txtAmountPeople.setText(lstPeople.size() + " Members");
 
         NavController navController = Navigation.findNavController(view);
-        imbBack.setOnClickListener(new View.OnClickListener() {
+        biding.appbar.imbBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.groupFragment2, true).build();
@@ -65,11 +58,11 @@ public class NameGroupFragment extends Fragment {
             }
         });
 
-        imbDone.setOnClickListener(new View.OnClickListener() {
+        biding.appbar.imbDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putString("nameGroup", String.valueOf(edtNameGroup.getText()));
+                bundle.putString("nameGroup", String.valueOf(biding.edtNameGroup.getText()));
                 bundle.putString("amountPeople", String.valueOf(lstPeople.size()));
 
                 navController.navigate(R.id.action_nameGroupFragment_to_chatBlankFragment, bundle);
@@ -91,6 +84,7 @@ public class NameGroupFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_name_group, container, false);
+        biding = FragmentNameGroupBinding.inflate(inflater, container, false);
+        return biding.getRoot();
     }
 }

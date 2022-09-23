@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.example.mobilechatkit.adapter.PeopleAdapter;
+import com.example.mobilechatkit.databinding.FragmentGroupBinding;
 import com.example.mobilechatkit.model.People;
 
 import java.util.ArrayList;
@@ -24,35 +25,30 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 public class GroupFragment extends Fragment {
 
-    private StickyListHeadersListView lstPeople;
     private PeopleAdapter peopleAdapter;
-    private ImageButton imbBack, imbNext;
+
+    FragmentGroupBinding biding;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        lstPeople = view.findViewById(R.id.lst_people);
-        imbBack = view.findViewById(R.id.imb_back);
-        imbNext = view.findViewById(R.id.imb_next);
-
         peopleAdapter = new PeopleAdapter();
 
         peopleAdapter.setData(getListPeople());
-        lstPeople.setAdapter(peopleAdapter);
+        biding.lstPeople.setAdapter(peopleAdapter);
 
         NavController navController = Navigation.findNavController(view);
 
-        imbBack.setOnClickListener(new View.OnClickListener() {
+        biding.appbar.imbBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                navController.navigate(R.id.action_groupFragment2_to_homeFragment);
                 NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.homeFragment, true).build();
                 navController.navigate(R.id.action_groupFragment2_to_homeFragment, null, navOptions);
             }
         });
 
-        imbNext.setOnClickListener(new View.OnClickListener() {
+        biding.appbar.imbNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_groupFragment2_to_nameGroupFragment);
@@ -75,6 +71,7 @@ public class GroupFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_group, container, false);
+        biding = FragmentGroupBinding.inflate(inflater, container, false);
+        return biding.getRoot();
     }
 }
